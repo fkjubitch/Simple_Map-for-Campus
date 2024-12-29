@@ -4,6 +4,8 @@
         "iosfwd": "cpp",
         "*.tcc": "cpp",
         "istream": "cpp",
-        "stdexcept": "cpp"
+        "stdexcept": "cpp",
+        "array": "cpp",
+        "string_view": "cpp"
     }
 }
