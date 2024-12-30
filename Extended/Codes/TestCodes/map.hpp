@@ -11,8 +11,8 @@ using namespace std;
     Usage information:
     1. Create a Map heritage object
     2. add edges
-    3. Dijkstra operation
-    4. dot and route queries
+    3. Dijkstra operation / Junctions operation
+    4. dot and route queries / junctions queries
 */
 /*************************************************************************************/
 
@@ -34,6 +34,7 @@ class Map{
         Node dotQuiry(string name);
         pair<int,vector<string>> routeQuiry(string name1,string name2);
         vector<Node> junctionsQuery();
+        pair<vector<int>,vector<vector<Node>>> allPathsQuery();
 
     protected:
         // private struct
@@ -47,9 +48,14 @@ class Map{
         vector<Node> nodes; // index 0 is forsaken
         map<string,int> nameToIndex;
         vector<vector<Pair>> edges;
+        /* Dijstra */
         vector<vector<int>> minRouteVal;
         vector<vector<vector<int>>> minRoutePassDots; // Dots passing by in the min route
+        /* Junctions */
         vector<int> junctions; // Junction Dots indexes
+        /* AllPaths */
+        vector<int> allPathsVal; // Register-like var to store all paths value between two dots
+        vector<vector<int>> allPaths; // Register-like var to store all paths between two dots
 };
 
 class Dijkstra:virtual public Map{
@@ -97,6 +103,19 @@ class JunctionNodes:virtual public Map{
         void dfsLO(int curr); // last order dfs
 };
 
+class AllPaths:virtual public Map{
+    public:
+        AllPaths(const vector<string>&,const vector<string>&);
+        void findAllPaths(string, string);
+
+    private:
+        // private vars
+        int val;
+        vector<bool> visited;
+        vector<int> stackVec;
+        // private functions
+        void dfs(int,int);
+};
 
 /*************************************************************************************/
 /* Implement Area */
@@ -148,6 +167,19 @@ vector<Node> Map::junctionsQuery(){
         ret.push_back(nodes.at(i));
     }
     return ret;
+}
+
+// query from start to end
+pair<vector<int>,vector<vector<Node>>> Map::allPathsQuery(){
+    vector<vector<Node>> ret;
+    for(vector<int>& temp:allPaths){
+        vector<Node> vec;
+        for(int i:temp){
+            vec.push_back(nodes.at(i));
+        }
+        ret.push_back(vec);
+    }
+    return {allPathsVal,ret};
 }
 
 /*************************************************************************************/
@@ -210,6 +242,7 @@ JunctionNodes::JunctionNodes(const vector<string>& addrName,const vector<string>
 
 // Find Junction Nodes main function
 void JunctionNodes::findJunctions(){
+    junctions.clear();
     count=0;
     for(int i=1;i<=n;i++){
         visited.at(i)=0;
@@ -274,16 +307,52 @@ void JunctionNodes::dfsLO(int curr){
 }
 
 /*************************************************************************************/
+/* AllPaths */
+/*************************************************************************************/
+// construct function
+AllPaths::AllPaths(const vector<string>& addrName,const vector<string>& addrInfo):Map(addrName,addrInfo),visited(vector<bool>(n+1)){
+    visited.at(0)=1;
+}
+
+// find all paths from start to end
+void AllPaths::findAllPaths(string start, string end){
+    val=0;
+    allPaths.clear();
+    allPathsVal.clear();
+    dfs(nameToIndex.at(start),nameToIndex.at(end));
+}
+
+// private function: dfs for findAllPaths
+void AllPaths::dfs(int curr,int end){
+    if(visited.at(curr)) return;
+    visited.at(curr)=1;
+    stackVec.push_back(curr);
+    if(curr==end){
+        allPaths.push_back(stackVec);
+        allPathsVal.push_back(val);
+    }
+    else{
+        for(const Pair& p:edges.at(curr)){
+            val+=p.val;
+            dfs(p.next,end);
+            val-=p.val;
+        }
+    }
+    stackVec.pop_back();
+    visited.at(curr)=0;
+}
+
+/*************************************************************************************/
 /* Special Area */
 /*************************************************************************************/
 
 /*************************************************************************************/
 /* ExtendMap */
 /*************************************************************************************/
-class ExtendMap:public Dijkstra,public JunctionNodes{
+class ExtendMap:public Dijkstra,public JunctionNodes,public AllPaths{
     public:
         ExtendMap(const vector<string>&,const vector<string>&);
 };
 
 // construct function
-ExtendMap::ExtendMap(const vector<string>& addrName,const vector<string>& addrInfo):Map(addrName,addrInfo),Dijkstra(addrName,addrInfo),JunctionNodes(addrName,addrInfo){}
+ExtendMap::ExtendMap(const vector<string>& addrName,const vector<string>& addrInfo):Map(addrName,addrInfo),Dijkstra(addrName,addrInfo),JunctionNodes(addrName,addrInfo),AllPaths(addrName,addrInfo){}

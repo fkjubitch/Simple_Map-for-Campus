@@ -6,6 +6,8 @@
         "istream": "cpp",
         "stdexcept": "cpp",
         "array": "cpp",
-        "string_view": "cpp"
+        "string_view": "cpp",
+        "string": "cpp",
+        "ostream": "cpp"
     }
 }

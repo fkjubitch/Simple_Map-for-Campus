@@ -1,0 +1,22 @@
+{
+	"BUILD_DIR" : "C:/Users/22152/Desktop/Map/Extended/Codes/VisualMap/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/VisualMap_autogen",
+	"CMAKE_BINARY_DIR" : "C:/Users/22152/Desktop/Map/Extended/Codes/VisualMap/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "C:/Users/22152/Desktop/Map/Extended/Codes/VisualMap/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "C:/Users/22152/Desktop/Map/Extended/Codes/VisualMap",
+	"CMAKE_SOURCE_DIR" : "C:/Users/22152/Desktop/Map/Extended/Codes/VisualMap",
+	"CROSS_CONFIG" : false,
+	"GENERATOR" : "Ninja",
+	"INCLUDE_DIR" : "C:/Users/22152/Desktop/Map/Extended/Codes/VisualMap/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/VisualMap_autogen/include",
+	"INPUTS" : [],
+	"LOCK_FILE" : "C:/Users/22152/Desktop/Map/Extended/Codes/VisualMap/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/CMakeFiles/VisualMap_autogen.dir/AutoRcc_res_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "--no-zstd", "-name", "res" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_res.cpp",
+	"RCC_EXECUTABLE" : "D:/Qt/6.5.3/mingw_64/./bin/rcc.exe",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "C:/Users/22152/Desktop/Map/Extended/Codes/VisualMap/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/CMakeFiles/VisualMap_autogen.dir/AutoRcc_res_EWIEGA46WW_Used.txt",
+	"SOURCE" : "C:/Users/22152/Desktop/Map/Extended/Codes/VisualMap/res.qrc",
+	"USE_BETTER_GRAPH" : false,
+	"VERBOSITY" : 0
+}
