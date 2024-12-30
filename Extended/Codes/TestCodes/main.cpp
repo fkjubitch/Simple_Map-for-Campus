@@ -2,6 +2,7 @@
 #include<fstream>
 #include<sstream>
 #include<cstring>
+#include<unistd.h>
 #include"map.hpp"
 
 int main(){
@@ -57,7 +58,7 @@ int main(){
         solution.addEdge(u,v,val);
     }
 
-    /* Start to find min route */
+    /* Start to find min route */ 
     for(int i=1;i<=n;i++){
         solution.findMinRoute(i);
     }
@@ -104,6 +105,24 @@ int main(){
                         }
                     }
                     resultOut<<endl<<endl;
+                    break;
+                }
+                case 4:{
+                    // find all paths from u to v;
+                    string uStr,vStr; ss>>uStr>>vStr;
+                    solution.findAllPaths(uStr,vStr);
+                    pair<vector<int>,vector<vector<Node>>> temp(solution.allPathsQuery());
+                    resultOut<<"从 "<<uStr<<" 到 "<<vStr<<" 的所有路径 : "<<endl;
+                    vector<int>& vecVal(temp.first); int i=0;
+                    for(vector<Node>& vec:temp.second){
+                        for(int i=0;i<vec.size()-1;i++){
+                            resultOut<<vec[i].name<<" → ";
+                        }
+                        resultOut<<vec[vec.size()-1].name<<" "<<vecVal.at(i)<<"米"<<endl;
+                        resultOut.flush();
+                        i++;
+                    }
+                    resultOut<<endl;
                     break;
                 }
             }
