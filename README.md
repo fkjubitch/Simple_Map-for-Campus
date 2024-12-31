@@ -1,5 +1,7 @@
 # README
 
+数据结构 大作业3：中大东校园的简单地图
+
 本程序使用 IDE : `Vscode`,`Qt Creator` Lang : `C++(C++11及以上)` Frame : `Qt 6.5` Toolkit : `MinGW_64` MakeTool : `CMake 3.16` 编写，使用**`UTF-8`**编码。
 
 ## 功能
