@@ -1,0 +1,47 @@
+<RCC>
+    <qresource prefix="/new/img">
+        <file>campus_map.jpg</file>
+        <file>campus_map.txt</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>paths/1.png</file>
+        <file>paths/2.png</file>
+        <file>paths/3.png</file>
+        <file>paths/4.png</file>
+        <file>paths/5.png</file>
+        <file>paths/6.png</file>
+        <file>paths/7.png</file>
+        <file>paths/8.png</file>
+        <file>paths/9.png</file>
+        <file>paths/10.png</file>
+        <file>paths/11.png</file>
+        <file>paths/12.png</file>
+        <file>paths/13.png</file>
+        <file>paths/14.png</file>
+        <file>paths/15.png</file>
+        <file>paths/16.png</file>
+        <file>paths/17.png</file>
+        <file>paths/18.png</file>
+        <file>paths/19.png</file>
+        <file>paths/20.png</file>
+        <file>paths/21.png</file>
+        <file>paths/22.png</file>
+        <file>paths/23.png</file>
+        <file>paths/24.png</file>
+        <file>paths/25.png</file>
+        <file>paths/26.png</file>
+        <file>paths/27.png</file>
+        <file>paths/28.png</file>
+        <file>paths/29.png</file>
+        <file>paths/30.png</file>
+        <file>paths/31.png</file>
+        <file>paths/32.png</file>
+        <file>paths/33.png</file>
+        <file>paths/34.png</file>
+        <file>paths/35.png</file>
+        <file>paths/36.png</file>
+        <file>paths/37.png</file>
+        <file>icon.png</file>
+        <file>xcm/nailong.mp4</file>
+    </qresource>
+</RCC>
